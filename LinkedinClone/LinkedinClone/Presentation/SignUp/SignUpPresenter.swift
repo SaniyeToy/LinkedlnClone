@@ -20,14 +20,11 @@ protocol SignUpPresentationLogic {
 
 class SignUpPresenter: SignUpPresentationLogic {
     weak var viewController: SignUpDisplayLogic?
-
-    // MARK: Parse and calc respnse from SignUpInteractor and send simple view model to SignUpViewController to be displayed
-
+    
     func presentSomething(response: SignUp.SignUp.Response) {
         let viewModel = SignUp.SignUp.ViewModel()
         viewController?.displaySignUpView(viewModel: viewModel)
     }
-    
     
     func alertAction(title: String , message: String , action: UIAlertAction) {
         Alert.alertAction(title: title, message: message, action: action)

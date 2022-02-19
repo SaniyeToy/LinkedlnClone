@@ -12,44 +12,33 @@
 
 import UIKit
 
-protocol LoginDisplayLogic: AnyObject
-{
+protocol LoginDisplayLogic: AnyObject{
     func displayLoginView(viewModel: Login.Something.ViewModel)
-//    func displaySomethingElse(viewModel: Login.SomethingElse.ViewModel)
 }
 
 class LoginViewController: UIViewController {
     var interactor: LoginBusinessLogic?
-    var router: (NSObjectProtocol & LoginRoutingLogic & LoginDataPassing)?
-
+    var router: (LoginRoutingLogic & LoginDataPassing)?
     
     @IBOutlet weak var emailTextField: UITextField!
-    
-    
     @IBOutlet weak var passwordTextField: UITextField!
-    
-    
     @IBOutlet weak var contiuneWithFaceBookButton: UIButton!
-    
     @IBOutlet weak var loginButton: UIButton!
     
-    
-    
-    
     // MARK: Object lifecycle
-
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
-
-    // MARK: - Setup Clean Code Design Pattern 
-
+    
+    // MARK: - Setup Clean Code Design Pattern
+    
     private func setup() {
         let viewController = self
         let interactor = LoginInteractor(worker: LoginWorker())
@@ -62,13 +51,11 @@ class LoginViewController: UIViewController {
         router.viewController = viewController
         router.dataStore = interactor
     }
-
-
+    
     // MARK: - View lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
     }
     
     @IBAction func contiuneFaceBookTapped(_ sender: Any) {
@@ -82,7 +69,6 @@ class LoginViewController: UIViewController {
     }
     
     func login(){
- 
         
         guard let email = emailTextField.text,
               !email.isEmpty else {
@@ -99,10 +85,9 @@ class LoginViewController: UIViewController {
         interactor?.login(email: email, password: password)
         router?.routeToHome()
     }
-
 }
 extension LoginViewController: LoginDisplayLogic {
     func displayLoginView(viewModel: Login.Something.ViewModel) {
-       
+        
     }
 }

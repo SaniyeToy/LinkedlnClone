@@ -13,13 +13,12 @@
 import UIKit
 
 protocol LoginBusinessLogic {
-   func login(email: String, password: String)
-   func alertAction(title: String, message: String, action: UIAlertAction)
-   func alert(title: String, message: String)
+    func login(email: String, password: String)
+    func alertAction(title: String, message: String, action: UIAlertAction)
+    func alert(title: String, message: String)
 }
 
 protocol LoginDataStore {
-
 }
 
 class LoginInteractor: LoginBusinessLogic, LoginDataStore {
@@ -29,10 +28,9 @@ class LoginInteractor: LoginBusinessLogic, LoginDataStore {
     init(worker: LoginWorkerProtocol) {
         self.worker = worker
     }
-
+    
     func login(email: String, password: String){
         worker.login(email: email, password: password)
-
     }
     
     func alertAction(title: String, message: String, action: UIAlertAction) {
@@ -42,6 +40,6 @@ class LoginInteractor: LoginBusinessLogic, LoginDataStore {
     func alert(title: String, message: String) {
         presenter?.alert(title: title, message: message)
     }
-
-    }
+    
+}
 

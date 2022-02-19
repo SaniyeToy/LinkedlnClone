@@ -12,17 +12,10 @@
 
 import UIKit
 
-protocol HomePresentationLogic {
-    func presentSomething(response: Home.Something.Response)
+protocol HomePresentationLogic: AnyObject {
+   
 }
 
-class HomePresenter: HomePresentationLogic {
+final class HomePresenter: HomePresentationLogic {
     weak var viewController: HomeDisplayLogic?
-
-    // MARK: Parse and calc respnse from HomeInteractor and send simple view model to HomeViewController to be displayed
-
-    func presentSomething(response: Home.Something.Response) {
-        let viewModel = Home.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
-    }
 }

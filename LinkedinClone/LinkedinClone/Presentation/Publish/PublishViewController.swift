@@ -12,14 +12,13 @@
 
 import UIKit
 
-protocol PublishDisplayLogic: AnyObject
-{
-    
+protocol PublishDisplayLogic: AnyObject{
+    func displayPublishView(viewModel: Publish.Publish.ViewModel)
 }
 
 class PublishViewController: UIViewController{
     var interactor: PublishBusinessLogic?
-    var router: (NSObjectProtocol & PublishRoutingLogic & PublishDataPassing)?
+    var router: (PublishRoutingLogic & PublishDataPassing)?
     var collection : String?
     var image = UIImage(named:"image"){
         didSet{
@@ -57,27 +56,12 @@ class PublishViewController: UIViewController{
         router.dataStore = interactor
     }
     
-    // MARK: - Routing
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
-        }
-    }
-    
     // MARK: - View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        publishImageView.addTapGesture { [self] in
-            chooseImage()
-        }
     }
-  
+    
     @IBAction func publishButton(_ sender: Any) {
         publishPost()
     }
@@ -103,7 +87,11 @@ class PublishViewController: UIViewController{
     }
 }
 extension PublishViewController: PublishDisplayLogic{
-    
+    func displayPublishView(viewModel: Publish.Publish.ViewModel) {
+        publishImageView.addTapGesture { [self] in
+            chooseImage()
+        }
+    }
 }
 
 extension PublishViewController:  UIImagePickerControllerDelegate , UINavigationControllerDelegate {
@@ -118,5 +106,4 @@ extension PublishViewController:  UIImagePickerControllerDelegate , UINavigation
         publishImageView.image = info[.originalImage] as? UIImage
         self.dismiss(animated: true, completion: nil)
     }
-    
 }

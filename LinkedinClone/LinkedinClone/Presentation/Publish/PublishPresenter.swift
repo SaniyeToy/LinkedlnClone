@@ -20,11 +20,6 @@ protocol PublishPresentationLogic {
 class PublishPresenter: PublishPresentationLogic {
     weak var viewController: PublishDisplayLogic?
 
-    // MARK: Parse and calc respnse from PublishInteractor and send simple view model to PublishViewController to be displayed
-
-    
-    
-    
     func alertAction(title: String , message: String , action: UIAlertAction) {
         Alert.alertAction(title: title, message: message, action: action)
     }

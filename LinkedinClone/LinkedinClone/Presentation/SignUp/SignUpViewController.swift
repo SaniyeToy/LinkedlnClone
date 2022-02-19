@@ -13,13 +13,14 @@
 import UIKit
 import Firebase
 
-protocol SignUpDisplayLogic: AnyObject
-{
+protocol SignUpDisplayLogic: AnyObject{
     func displaySignUpView(viewModel: SignUp.SignUp.ViewModel)
-
 }
 
 class SignUpViewController: UIViewController {
+    
+    var interactor: SignUpBusinessLogic?
+    var router: (NSObjectProtocol & SignUpRoutingLogic & SignUpDataPassing)?
     
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -29,28 +30,25 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var faceBookButton: UIButton!
     @IBOutlet weak var signInButton: UIButton!
     
-    var interactor: SignUpBusinessLogic?
-    var router: (NSObjectProtocol & SignUpRoutingLogic & SignUpDataPassing)?
-    
     var firstName: String?
     var lastName: String?
     var email: String?
     var password: String?
     
     // MARK: Object lifecycle
-
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
-
+    
     // MARK: - Setup Clean Code Design Pattern 
-
+    
     private func setup() {
         let viewController = self
         let interactor = SignUpInteractor(worker: SignUpWorker())
@@ -63,21 +61,22 @@ class SignUpViewController: UIViewController {
         router.viewController = viewController
         router.dataStore = interactor
     }
-
+    
     // MARK: - View lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     @IBAction func facebookTapped(_ sender: Any) {
     }
+    
     @IBAction func joinNowTapped(_ sender: Any) {
-         createUser()
-        
+        createUser()
     }
+    
     @IBAction func signInButtonTapped(_ sender: Any) {
-   
+        
     }
     
     func createUser(){
@@ -86,6 +85,7 @@ class SignUpViewController: UIViewController {
                   interactor?.alert(title: "Please enter a first name", message: "Invalid First Name")
                   return
               }
+        
         guard let lastName = lastNameTextField.text,
               !lastName.isEmpty else {
                   interactor?.alert(title: "Please enter a last name", message: "Invalid Last Name")
@@ -107,11 +107,9 @@ class SignUpViewController: UIViewController {
         interactor?.createUser(firstName: firstName , lastName: lastName , email: email , password: password)
         router?.routeToHome()
     }
-    
 }
+
 extension SignUpViewController: SignUpDisplayLogic {
     func displaySignUpView(viewModel: SignUp.SignUp.ViewModel) {
-        
-      
     }
 }

@@ -343,24 +343,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTV-Ij-tz9">
-                                <rect key="frame" x="174" y="222" width="67" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="logoutTapped:" destination="SqO-GL-otw" eventType="touchUpInside" id="oBi-GO-j4O"/>
-                                </connections>
-                            </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="KZC-YE-j7G">
+                                <rect key="frame" x="0.0" y="52" width="414" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" id="93J-Vp-mIn">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="EFm-FF-etg">
+                                            <rect key="frame" x="20" y="4.5" width="51" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" red="0.27727945380000002" green="0.032880205209999999" blue="0.37140940659999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="brain.head.profile" catalog="system"/>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="5fK-Ko-hdK">
+                                        <searchBar key="customView" contentMode="redraw" id="CFc-ci-SQN">
+                                            <rect key="frame" x="86" y="0.0" width="308" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </searchBar>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DJa-us-jtf">
+                                <rect key="frame" x="0.0" y="106" width="414" height="707"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7Mi-aR-0K0"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                        <constraints>
+                            <constraint firstItem="7Mi-aR-0K0" firstAttribute="trailing" secondItem="DJa-us-jtf" secondAttribute="trailing" id="RA4-XN-1qx"/>
+                            <constraint firstItem="KZC-YE-j7G" firstAttribute="leading" secondItem="DJa-us-jtf" secondAttribute="leading" id="RLa-iC-39V"/>
+                            <constraint firstItem="DJa-us-jtf" firstAttribute="leading" secondItem="7Mi-aR-0K0" secondAttribute="leading" id="ZbR-CL-aWk"/>
+                            <constraint firstItem="7Mi-aR-0K0" firstAttribute="bottom" secondItem="DJa-us-jtf" secondAttribute="bottom" id="e97-v0-ZJ4"/>
+                            <constraint firstItem="DJa-us-jtf" firstAttribute="top" secondItem="KZC-YE-j7G" secondAttribute="bottom" constant="10" id="m8y-VZ-KZV"/>
+                            <constraint firstItem="KZC-YE-j7G" firstAttribute="trailing" secondItem="DJa-us-jtf" secondAttribute="trailing" id="mDp-NS-XVw"/>
+                            <constraint firstItem="KZC-YE-j7G" firstAttribute="top" secondItem="7Mi-aR-0K0" secondAttribute="top" constant="8" id="wjF-gZ-Fns"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="lPs-pX-NXC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i3j-wa-Oyv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2548" y="-1426"/>
+            <point key="canvasLocation" x="2547.826086956522" y="-1426.3392857142856"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="zZl-aw-58I">
@@ -423,6 +449,7 @@
     <resources>
         <image name="bag.fill" catalog="system" width="128" height="128"/>
         <image name="bell.fill" catalog="system" width="128" height="124"/>
+        <image name="brain.head.profile" catalog="system" width="114" height="128"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="person.2.fill" catalog="system" width="128" height="80"/>
         <image name="plus.app.fill" catalog="system" width="128" height="114"/>
@@ -431,6 +458,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

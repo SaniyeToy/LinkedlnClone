@@ -23,9 +23,7 @@ protocol SignUpDataPassing: AnyObject {
 class SignUpRouter: NSObject, SignUpRoutingLogic, SignUpDataPassing {
     weak var viewController: SignUpViewController?
     var dataStore: SignUpDataStore?
-
-// MARK: Routing (navigating to other screens)
-
+    
     func routeToHome() {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let destVC: HomeViewController = storyBoard.instantiateViewController(identifier: "home")

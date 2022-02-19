@@ -16,7 +16,7 @@ enum Home
 {
     // MARK: Use cases
 
-    enum Something
+    enum Home
     {
         struct Request
         {

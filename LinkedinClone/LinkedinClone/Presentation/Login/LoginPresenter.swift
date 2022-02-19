@@ -13,10 +13,8 @@
 import UIKit
 
 protocol LoginPresentationLogic {
-  
     func alertAction(title: String , message: String , action: UIAlertAction)
     func alert(title: String , message: String)
-    
 }
 
 class LoginPresenter: LoginPresentationLogic {
@@ -29,5 +27,4 @@ class LoginPresenter: LoginPresentationLogic {
     func alert(title: String , message: String){
         Alert.alert(title: title, message: message)
     }
-
 }

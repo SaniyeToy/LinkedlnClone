@@ -23,12 +23,9 @@ protocol PublishDataPassing: AnyObject {
 
 class PublishRouter: NSObject, PublishRoutingLogic, PublishDataPassing {
     
-    
     weak var viewController: PublishViewController?
     var dataStore: PublishDataStore?
-    
-    // MARK: Routing (navigating to other screens)
-    
+
     func routeToHome() {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let destVC = storyBoard.instantiateViewController(identifier: "home")

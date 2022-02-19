@@ -19,20 +19,18 @@ protocol SignUpBusinessLogic {
 }
 
 protocol SignUpDataStore {
-
 }
 
 class SignUpInteractor: SignUpBusinessLogic, SignUpDataStore {
     var presenter: SignUpPresentationLogic?
     var worker: SignUpWorkerProtocol
-
+    
     init(worker: SignUpWorkerProtocol) {
         self.worker = worker
     }
-
+    
     func createUser(firstName: String, lastName: String, email: String, password: String){
         worker.createUser(firstName: firstName, lastName: lastName, email: email, password: password)
-       
     }
     
     func alertAction(title: String, message: String, action: UIAlertAction) {

@@ -15,40 +15,22 @@ import UIKit
 enum Publish
 {
     // MARK: Use cases
-
-    enum Something
+    
+    enum Publish
     {
         struct Request
         {
-
+            
         }
-
+        
         struct Response
         {
-
+            
         }
-
+        
         struct ViewModel
         {
-
+            
         }
     }
-    
-//    enum SomethingElse
-//    {
-//        struct Request
-//        {
-//
-//        }
-//
-//        struct Response
-//        {
-//
-//        }
-//
-//        struct ViewModel
-//        {
-//
-//        }
-//    }
 }

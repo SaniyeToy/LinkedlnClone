@@ -16,7 +16,7 @@ protocol PublishBusinessLogic {
     func publishPost(image: UIImage, postTitle: String, collection: String)
     func alertAction(title: String, message: String, action: UIAlertAction)
     func alert(title: String, message: String)
-   
+    
 }
 
 protocol PublishDataStore {
@@ -25,11 +25,11 @@ protocol PublishDataStore {
 class PublishInteractor: PublishBusinessLogic, PublishDataStore {
     var presenter: PublishPresentationLogic?
     var worker: PublishWorkerProtocol
-
+    
     init(worker: PublishWorkerProtocol) {
         self.worker = worker
     }
-
+    
     func publishPost(image: UIImage, postTitle: String, collection: String){
         worker.uploadPost(image: image, postTitle: postTitle, collection: collection)
     }

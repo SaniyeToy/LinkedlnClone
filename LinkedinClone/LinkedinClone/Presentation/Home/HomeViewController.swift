@@ -13,15 +13,13 @@
 import UIKit
 import Firebase
 
-protocol HomeDisplayLogic: class
-{
-    func displaySomething(viewModel: Home.Something.ViewModel)
-//    func displaySomethingElse(viewModel: Home.SomethingElse.ViewModel)
+protocol HomeDisplayLogic: AnyObject{
+    
 }
 
-class HomeViewController: UIViewController, HomeDisplayLogic {
+class HomeViewController: UIViewController{
     var interactor: HomeBusinessLogic?
-    var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
+    var router: (HomeRoutingLogic & HomeDataPassing)?
 
     // MARK: Object lifecycle
 
@@ -39,7 +37,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
 
     private func setup() {
         let viewController = self
-        let interactor = HomeInteractor()
+        let interactor = HomeInteractor(worker: HomeWorker())
         let presenter = HomePresenter()
         let router = HomeRouter()
         viewController.interactor = interactor
@@ -48,17 +46,6 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         presenter.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor
-    }
-
-    // MARK: - Routing
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
-        }
     }
 
     // MARK: - View lifecycle
@@ -82,37 +69,8 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
             
         }
     }
-    //MARK: - receive events from UI
+}
+
+extension HomeViewController : HomeDisplayLogic {
     
-    //@IBOutlet weak var nameTextField: UITextField!
-//
-//    @IBAction func someButtonTapped(_ sender: Any) {
-//
-//    }
-//
-//    @IBAction func otherButtonTapped(_ sender: Any) {
-//
-//    }
-    
-    // MARK: - request data from HomeInteractor
-
-    func doSomething() {
-        let request = Home.Something.Request()
-        interactor?.doSomething(request: request)
-    }
-//
-//    func doSomethingElse() {
-//        let request = Home.SomethingElse.Request()
-//        interactor?.doSomethingElse(request: request)
-//    }
-
-    // MARK: - display view model from HomePresenter
-
-    func displaySomething(viewModel: Home.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
-    }
-//
-//    func displaySomethingElse(viewModel: Home.SomethingElse.ViewModel) {
-//        // do sometingElse with viewModel
-//    }
 }
