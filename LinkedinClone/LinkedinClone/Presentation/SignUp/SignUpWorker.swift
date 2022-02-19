@@ -31,7 +31,8 @@ final class SignUpWorker:  SignUpWorkerProtocol{
                 let db = Firestore.firestore()
                 ref = db.collection("users").addDocument(data: [
                     "firstName": firstName as String ,
-                    "lastName": lastName as String
+                    "lastName": lastName as String,
+                    "email": email as String
                 ]) { err in
                     if let err = err {
                         Alert.alert(title: "Document didn't add", message: error!.localizedDescription)

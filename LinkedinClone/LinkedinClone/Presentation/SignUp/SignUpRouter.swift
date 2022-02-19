@@ -12,11 +12,11 @@
 
 import UIKit
 
-protocol SignUpRoutingLogic {
+protocol SignUpRoutingLogic: AnyObject {
     func routeToHome() 
 }
 
-protocol SignUpDataPassing {
+protocol SignUpDataPassing: AnyObject {
     var dataStore: SignUpDataStore? { get }
 }
 

@@ -13,7 +13,8 @@
 import UIKit
 
 protocol PublishPresentationLogic {
-    func presentSomething(response: Publish.Something.Response)
+    func alertAction(title: String , message: String , action: UIAlertAction)
+    func alert(title: String , message: String)
 }
 
 class PublishPresenter: PublishPresentationLogic {
@@ -21,13 +22,15 @@ class PublishPresenter: PublishPresentationLogic {
 
     // MARK: Parse and calc respnse from PublishInteractor and send simple view model to PublishViewController to be displayed
 
-    func presentSomething(response: Publish.Something.Response) {
-        let viewModel = Publish.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    
+    
+    
+    func alertAction(title: String , message: String , action: UIAlertAction) {
+        Alert.alertAction(title: title, message: message, action: action)
     }
-//
-//    func presentSomethingElse(response: Publish.SomethingElse.Response) {
-//        let viewModel = Publish.SomethingElse.ViewModel()
-//        viewController?.displaySomethingElse(viewModel: viewModel)
-//    }
+    
+    func alert(title: String , message: String){
+        Alert.alert(title: title, message: message)
+    }
+
 }

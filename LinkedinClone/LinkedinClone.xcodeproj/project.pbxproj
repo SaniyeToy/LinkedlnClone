@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		220D111027C0D5420071BEDE /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220D110F27C0D5420071BEDE /* ViewExtensions.swift */; };
 		2283B01327BF7F8A001C8F19 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283B00D27BF7F8A001C8F19 /* SignUpPresenter.swift */; };
 		2283B01427BF7F8A001C8F19 /* SignUpWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283B00E27BF7F8A001C8F19 /* SignUpWorker.swift */; };
 		2283B01527BF7F8A001C8F19 /* SignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283B00F27BF7F8A001C8F19 /* SignUpRouter.swift */; };
@@ -61,6 +62,7 @@
 
 /* Begin PBXFileReference section */
 		011391F8FF522DD876F5C05D /* Pods_LinkedinClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LinkedinClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		220D110F27C0D5420071BEDE /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		2283B00D27BF7F8A001C8F19 /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
 		2283B00E27BF7F8A001C8F19 /* SignUpWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWorker.swift; sourceTree = "<group>"; };
 		2283B00F27BF7F8A001C8F19 /* SignUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRouter.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				2283B01B27BFBA0C001C8F19 /* AlertHelper.swift */,
+				220D110F27C0D5420071BEDE /* ViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -188,10 +191,10 @@
 			children = (
 				22F93A5A27BEA69D006EA81A /* Login */,
 				2283B01927BF7F91001C8F19 /* SignUp */,
+				22F93A5D27BEA6D0006EA81A /* Publish */,
 				22F93A5B27BEA6AA006EA81A /* Home */,
 				22F93A5C27BEA6B3006EA81A /* Network */,
 				22F93A5E27BEA6DE006EA81A /* Notifications */,
-				22F93A5D27BEA6D0006EA81A /* Publish */,
 				22F93A5F27BEA6EE006EA81A /* JobPosting */,
 			);
 			path = Presentation;
@@ -239,12 +242,12 @@
 		22F93A5D27BEA6D0006EA81A /* Publish */ = {
 			isa = PBXGroup;
 			children = (
+				22F93A8827BEB40E006EA81A /* PublishViewController.swift */,
+				22F93A8927BEB40E006EA81A /* PublishInteractor.swift */,
 				22F93A8427BEB40E006EA81A /* PublishPresenter.swift */,
 				22F93A8527BEB40E006EA81A /* PublishWorker.swift */,
 				22F93A8627BEB40E006EA81A /* PublishRouter.swift */,
 				22F93A8727BEB40E006EA81A /* PublishModels.swift */,
-				22F93A8827BEB40E006EA81A /* PublishViewController.swift */,
-				22F93A8927BEB40E006EA81A /* PublishInteractor.swift */,
 			);
 			path = Publish;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				22F93A6827BEAFFA006EA81A /* HomeRouter.swift in Sources */,
 				22F93A4627BEA13A006EA81A /* AppDelegate.swift in Sources */,
 				22F93AA427BEB443006EA81A /* JobPostingRouter.swift in Sources */,
+				220D111027C0D5420071BEDE /* ViewExtensions.swift in Sources */,
 				22F93AA527BEB443006EA81A /* JobPostingModels.swift in Sources */,
 				22F93A6A27BEAFFA006EA81A /* HomeViewController.swift in Sources */,
 				22F93A8F27BEB40E006EA81A /* PublishInteractor.swift in Sources */,

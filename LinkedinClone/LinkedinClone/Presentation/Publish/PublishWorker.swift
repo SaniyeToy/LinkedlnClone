@@ -11,13 +11,49 @@
 //
 
 import UIKit
+import Firebase
 
-class PublishWorker {
-    func doSomeWork() {
+
+protocol PublishWorkerProtocol: AnyObject{
+    func uploadPost(image: UIImage , postTitle: String , collection: String)
+}
+final class PublishWorker : PublishWorkerProtocol {
+
+    func uploadPost(image: UIImage , postTitle: String , collection: String) {
         
+        let storage = Storage.storage()
+        let storageReference = storage.reference()
+        let mediaFolder = storageReference.child("media")//oluşturduğum media klasörüne atıyor klasör olmasa da oluştururdu
+        
+        
+        if let data = image.jpegData(compressionQuality: 0.5) {
+            
+            let uuid = UUID().uuidString
+            
+            let imageReference = mediaFolder.child("\(uuid).jpg")
+            imageReference.putData(data, metadata: nil) { (metadata, error) in
+                if error != nil {
+                    print(error?.localizedDescription as Any)
+                } else {
+                    imageReference.downloadURL { (url, error) in
+                        if error == nil {
+                            let imageUrl = url?.absoluteString
+                            print(imageUrl as Any)
+                            //DATABASE
+                            
+                            let firestoreDatabase = Firestore.firestore()
+                            
+                            var firestoreReference : DocumentReference? = nil
+                            
+                            let firestorePost = ["imageUrl" : imageUrl!, "postedBy" : Auth.auth().currentUser!.email!, "postComment" : postTitle,"date" : FieldValue.serverTimestamp() ] as [String : Any]
+                            
+                            firestoreReference = firestoreDatabase.collection(collection).addDocument(data: firestorePost, completion: { (error) in
+                                
+                            })
+                        }
+                    }
+                }
+            }
+        }
     }
-//    
-//    func doSomeOtherWork() {
-//
-//    }
 }

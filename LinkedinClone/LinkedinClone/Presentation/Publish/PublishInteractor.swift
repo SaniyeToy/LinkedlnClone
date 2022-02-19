@@ -13,34 +13,32 @@
 import UIKit
 
 protocol PublishBusinessLogic {
-    func doSomething(request: Publish.Something.Request)
-//    func doSomethingElse(request: Publish.SomethingElse.Request)
+    func publishPost(image: UIImage, postTitle: String, collection: String)
+    func alertAction(title: String, message: String, action: UIAlertAction)
+    func alert(title: String, message: String)
+   
 }
 
 protocol PublishDataStore {
-    //var name: String { get set }
 }
 
 class PublishInteractor: PublishBusinessLogic, PublishDataStore {
     var presenter: PublishPresentationLogic?
-    var worker: PublishWorker?
-    //var name: String = ""
+    var worker: PublishWorkerProtocol
 
-    // MARK: Do something (and send response to PublishPresenter)
-
-    func doSomething(request: Publish.Something.Request) {
-        worker = PublishWorker()
-        worker?.doSomeWork()
-
-        let response = Publish.Something.Response()
-        presenter?.presentSomething(response: response)
+    init(worker: PublishWorkerProtocol) {
+        self.worker = worker
     }
-//
-//    func doSomethingElse(request: Publish.SomethingElse.Request) {
-//        worker = PublishWorker()
-//        worker?.doSomeOtherWork()
-//
-//        let response = Publish.SomethingElse.Response()
-//        presenter?.presentSomethingElse(response: response)
-//    }
+
+    func publishPost(image: UIImage, postTitle: String, collection: String){
+        worker.uploadPost(image: image, postTitle: postTitle, collection: collection)
+    }
+    
+    func alertAction(title: String, message: String, action: UIAlertAction) {
+        presenter?.alertAction(title: title, message: message, action: action)
+    }
+    
+    func alert(title: String, message: String) {
+        presenter?.alert(title: title, message: message)
+    }
 }

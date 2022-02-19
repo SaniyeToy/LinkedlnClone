@@ -12,33 +12,41 @@
 
 import UIKit
 
-protocol PublishDisplayLogic: class
+protocol PublishDisplayLogic: AnyObject
 {
-    func displaySomething(viewModel: Publish.Something.ViewModel)
-//    func displaySomethingElse(viewModel: Publish.SomethingElse.ViewModel)
+    
 }
 
-class PublishViewController: UIViewController, PublishDisplayLogic {
+class PublishViewController: UIViewController{
     var interactor: PublishBusinessLogic?
     var router: (NSObjectProtocol & PublishRoutingLogic & PublishDataPassing)?
-
+    var collection : String?
+    var image = UIImage(named:"image"){
+        didSet{
+            image = publishImageView.image
+        }
+    }
+    
+    @IBOutlet weak var publishImageView: UIImageView!
+    @IBOutlet weak var addCommentTextField: UITextField!
+    
     // MARK: Object lifecycle
-
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
-
-    // MARK: - Setup Clean Code Design Pattern 
-
+    
+    // MARK: - Setup Clean Code Design Pattern
+    
     private func setup() {
         let viewController = self
-        let interactor = PublishInteractor()
+        let interactor = PublishInteractor(worker: PublishWorker())
         let presenter = PublishPresenter()
         let router = PublishRouter()
         viewController.interactor = interactor
@@ -48,9 +56,9 @@ class PublishViewController: UIViewController, PublishDisplayLogic {
         router.viewController = viewController
         router.dataStore = interactor
     }
-
+    
     // MARK: - Routing
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let scene = segue.identifier {
             let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
@@ -59,46 +67,56 @@ class PublishViewController: UIViewController, PublishDisplayLogic {
             }
         }
     }
-
+    
     // MARK: - View lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
-//        doSomethingElse()
+        
+        publishImageView.addTapGesture { [self] in
+            chooseImage()
+        }
+    }
+  
+    @IBAction func publishButton(_ sender: Any) {
+        publishPost()
     }
     
-    //MARK: - receive events from UI
-    
-    //@IBOutlet weak var nameTextField: UITextField!
-//
-//    @IBAction func someButtonTapped(_ sender: Any) {
-//
-//    }
-//
-//    @IBAction func otherButtonTapped(_ sender: Any) {
-//
-//    }
-    
-    // MARK: - request data from PublishInteractor
-
-    func doSomething() {
-        let request = Publish.Something.Request()
-        interactor?.doSomething(request: request)
+    @IBAction func postSegmentController(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0: collection = "post"
+        case 1:  collection = "job post"
+        default:
+            break
+        }
     }
-//
-//    func doSomethingElse() {
-//        let request = Publish.SomethingElse.Request()
-//        interactor?.doSomethingElse(request: request)
-//    }
-
-    // MARK: - display view model from PublishPresenter
-
-    func displaySomething(viewModel: Publish.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+    
+    func publishPost(){
+        guard let postTitle = addCommentTextField.text,
+              !postTitle.isEmpty else {
+                  interactor?.alert(title: "Please enter a first name", message: "Invalid First Name")
+                  return
+              }
+        
+        interactor?.publishPost(image: image! , postTitle: postTitle, collection: self.collection ?? "post")
+        router?.routeToHome()
     }
-//
-//    func displaySomethingElse(viewModel: Publish.SomethingElse.ViewModel) {
-//        // do sometingElse with viewModel
-//    }
+}
+extension PublishViewController: PublishDisplayLogic{
+    
+}
+
+extension PublishViewController:  UIImagePickerControllerDelegate , UINavigationControllerDelegate {
+    
+    func chooseImage(){
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        pickerController.sourceType = .photoLibrary
+        present(pickerController, animated: true , completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        publishImageView.image = info[.originalImage] as? UIImage
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }

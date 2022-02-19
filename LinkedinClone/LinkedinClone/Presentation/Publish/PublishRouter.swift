@@ -10,45 +10,29 @@
 //  see http://clean-swift.com
 //
 
+
 import UIKit
 
-@objc protocol PublishRoutingLogic {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+protocol PublishRoutingLogic: AnyObject {
+    func routeToHome()
 }
 
-protocol PublishDataPassing {
+protocol PublishDataPassing: AnyObject {
     var dataStore: PublishDataStore? { get }
 }
 
 class PublishRouter: NSObject, PublishRoutingLogic, PublishDataPassing {
+    
+    
     weak var viewController: PublishViewController?
     var dataStore: PublishDataStore?
-
-// MARK: Routing (navigating to other screens)
-
-//func routeToSomewhere(segue: UIStoryboardSegue?) {
-//    if let segue = segue {
-//        let destinationVC = segue.destination as! SomewhereViewController
-//        var destinationDS = destinationVC.router!.dataStore!
-//        passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-//    } else {
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-//        var destinationDS = destinationVC.router!.dataStore!
-//        passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-//        navigateToSomewhere(source: viewController!, destination: destinationVC)
-//    }
-//}
-
-// MARK: Navigation to other screen
-
-//func navigateToSomewhere(source: PublishViewController, destination: SomewhereViewController) {
-//    source.show(destination, sender: nil)
-//}
-
-// MARK: Passing data to other screen
-
-//    func passDataToSomewhere(source: PublishDataStore, destination: inout SomewhereDataStore) {
-//        destination.name = source.name
-//    }
+    
+    // MARK: Routing (navigating to other screens)
+    
+    func routeToHome() {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let destVC = storyBoard.instantiateViewController(identifier: "home")
+        destVC.modalPresentationStyle = .fullScreen
+        viewController?.present(destVC, animated: false, completion: nil)
+    }
 }
