@@ -17,6 +17,7 @@
 		2283B01727BF7F8A001C8F19 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283B01127BF7F8A001C8F19 /* SignUpViewController.swift */; };
 		2283B01827BF7F8A001C8F19 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283B01227BF7F8A001C8F19 /* SignUpInteractor.swift */; };
 		2283B01C27BFBA0C001C8F19 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283B01B27BFBA0C001C8F19 /* AlertHelper.swift */; };
+		22B60DE327C39E53008264F6 /* FireBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B60DE227C39E53008264F6 /* FireBaseManager.swift */; };
 		22F93A4627BEA13A006EA81A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F93A4527BEA13A006EA81A /* AppDelegate.swift */; };
 		22F93A4827BEA13A006EA81A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F93A4727BEA13A006EA81A /* SceneDelegate.swift */; };
 		22F93A4D27BEA13A006EA81A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22F93A4B27BEA13A006EA81A /* Main.storyboard */; };
@@ -74,6 +75,7 @@
 		2283B01127BF7F8A001C8F19 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		2283B01227BF7F8A001C8F19 /* SignUpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
 		2283B01B27BFBA0C001C8F19 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		22B60DE227C39E53008264F6 /* FireBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseManager.swift; sourceTree = "<group>"; };
 		22F93A4227BEA13A006EA81A /* LinkedinClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkedinClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F93A4527BEA13A006EA81A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22F93A4727BEA13A006EA81A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			children = (
 				2283B01B27BFBA0C001C8F19 /* AlertHelper.swift */,
 				220D110F27C0D5420071BEDE /* ViewExtensions.swift */,
+				22B60DE227C39E53008264F6 /* FireBaseManager.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 				22F93AA727BEB443006EA81A /* JobPostingInteractor.swift in Sources */,
 				22F93A9827BEB42A006EA81A /* NotificationsRouter.swift in Sources */,
 				22F93A8C27BEB40E006EA81A /* PublishRouter.swift in Sources */,
+				22B60DE327C39E53008264F6 /* FireBaseManager.swift in Sources */,
 				22F93A8027BEB3F9006EA81A /* NetworkRouter.swift in Sources */,
 				22F93A9A27BEB42A006EA81A /* NotificationsViewController.swift in Sources */,
 				2283B01627BF7F8A001C8F19 /* SignUpModels.swift in Sources */,

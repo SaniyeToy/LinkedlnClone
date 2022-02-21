@@ -13,7 +13,7 @@
 import UIKit
 
 protocol LoginBusinessLogic {
-    func login(email: String, password: String)
+    func logIn(_ email:String, _ password:String , completion :@escaping(Bool) -> Void)
     func alertAction(title: String, message: String, action: UIAlertAction)
     func alert(title: String, message: String)
 }
@@ -22,6 +22,8 @@ protocol LoginDataStore {
 }
 
 class LoginInteractor: LoginBusinessLogic, LoginDataStore {
+ 
+    
     var presenter: LoginPresentationLogic?
     var worker: LoginWorkerProtocol
     
@@ -29,9 +31,16 @@ class LoginInteractor: LoginBusinessLogic, LoginDataStore {
         self.worker = worker
     }
     
-    func login(email: String, password: String){
-        worker.login(email: email, password: password)
-    }
+        func logIn(_ email:String, _ password:String , completion :@escaping(Bool) -> Void){
+            
+            worker.signIn(email: email, pass: password) { (success) in
+                   if (success) {
+                       completion(true)
+                   } else {
+                      completion(false)
+                }
+             }
+        }
     
     func alertAction(title: String, message: String, action: UIAlertAction) {
         presenter?.alertAction(title: title, message: message, action: action)

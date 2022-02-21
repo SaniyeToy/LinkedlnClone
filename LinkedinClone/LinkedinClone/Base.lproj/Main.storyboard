@@ -99,6 +99,7 @@
                         <outlet property="emailTextField" destination="fHQ-nb-MUk" id="PSj-eu-M2B"/>
                         <outlet property="loginButton" destination="dBa-5v-RYG" id="14R-1a-7Se"/>
                         <outlet property="passwordTextField" destination="IfP-DV-SYd" id="uhn-Vk-GLx"/>
+                        <segue destination="7Cq-14-cBG" kind="presentation" identifier="toTabbar" modalPresentationStyle="fullScreen" id="xrs-Xn-Jgw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -392,6 +393,7 @@
         <scene sceneID="zZl-aw-58I">
             <objects>
                 <tabBarController storyboardIdentifier="tabbar" id="7Cq-14-cBG" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="cLr-NV-rHf"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vsW-mV-s0q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

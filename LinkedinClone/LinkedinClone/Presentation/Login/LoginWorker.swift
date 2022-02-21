@@ -12,22 +12,27 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 protocol LoginWorkerProtocol: AnyObject{
-    func login(email: String , password: String)
+    func signIn(email: String, pass: String, completionBlock: @escaping (_ success: Bool) -> Void)
 }
 
 final class LoginWorker:  LoginWorkerProtocol{
-    func login(email: String , password: String){
-        
-        Auth.auth().signIn(withEmail: email, password: password) {  authData, error in
-            
-            if error != nil {
-                print(error?.localizedDescription)
-                Alert.alert(title: "Can not login", message: error!.localizedDescription)
-            }else{
-                print("succesfully login")
+ 
+
+    
+    func signIn(email: String, pass: String, completionBlock: @escaping (_ success: Bool) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: pass) {(result, error) in
+            if let error = error, let _ = AuthErrorCode(rawValue: error._code) {
+                completionBlock(false)
+            } else {
+                completionBlock(true)
             }
         }
     }
 }
+
+
+
+

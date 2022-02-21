@@ -41,4 +41,5 @@ class PublishInteractor: PublishBusinessLogic, PublishDataStore {
     func alert(title: String, message: String) {
         presenter?.alert(title: title, message: message)
     }
+    
 }

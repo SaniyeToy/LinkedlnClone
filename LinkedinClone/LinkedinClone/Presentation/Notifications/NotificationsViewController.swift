@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import Firebase
 
 protocol NotificationsDisplayLogic: class
 {
@@ -64,8 +65,14 @@ class NotificationsViewController: UIViewController, NotificationsDisplayLogic {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
-//        doSomethingElse()
+
+        do {
+                   try Auth.auth().signOut()
+                   self.performSegue(withIdentifier: "toViewController", sender: nil)
+                   
+               } catch {
+                   print("error")
+               }
     }
     
     //MARK: - receive events from UI

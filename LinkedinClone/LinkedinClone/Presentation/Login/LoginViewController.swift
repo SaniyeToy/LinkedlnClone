@@ -14,6 +14,7 @@ import UIKit
 
 protocol LoginDisplayLogic: AnyObject{
     func displayLoginView(viewModel: Login.Something.ViewModel)
+    func getResponse(_ success: Bool)
 }
 
 class LoginViewController: UIViewController {
@@ -81,13 +82,29 @@ class LoginViewController: UIViewController {
                   interactor?.alert(title: "Please enter password", message: "Invalid password")
                   return
               }
+
+        self.signIn(email, password)
         
-        interactor?.login(email: email, password: password)
-        router?.routeToHome()
+    }
+    func signIn(_ email: String, _ password: String) {
+  
+        interactor?.logIn(email, password) {[weak self] (sucess) in
+            self?.getResponse(sucess)
+            print(sucess)
+        }
     }
 }
 extension LoginViewController: LoginDisplayLogic {
     func displayLoginView(viewModel: Login.Something.ViewModel) {
-        
+      
+    }
+    func getResponse(_ success: Bool) {
+        if success{
+            router?.routeToHome()
+        }
+        else{
+            interactor?.alert(title: "Error!", message: "Invalid email or password")
+            return
+        }
     }
 }

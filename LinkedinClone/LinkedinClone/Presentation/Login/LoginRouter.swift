@@ -25,9 +25,6 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
     var dataStore: LoginDataStore?
     
     func routeToHome() {
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let destVC: HomeViewController = storyBoard.instantiateViewController(identifier: "home")
-        destVC.modalPresentationStyle = .fullScreen
-        viewController?.navigationController?.pushViewController(destVC, animated: true)
+        viewController?.performSegue(withIdentifier: "toTabbar", sender: nil)
     }
 }
