@@ -13,7 +13,9 @@
 import UIKit
 
 protocol SignUpRoutingLogic: AnyObject {
-    func routeToHome() 
+    func routeToHome()
+    func popOver()
+  
 }
 
 protocol SignUpDataPassing: AnyObject {
@@ -25,9 +27,11 @@ class SignUpRouter: NSObject, SignUpRoutingLogic, SignUpDataPassing {
     var dataStore: SignUpDataStore?
     
     func routeToHome() {
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let destVC: HomeViewController = storyBoard.instantiateViewController(identifier: "home")
-        destVC.modalPresentationStyle = .fullScreen
-        viewController?.navigationController?.pushViewController(destVC, animated: true)
+        viewController?.performSegue(withIdentifier: "signUpToTabbar", sender: nil)
     }
+    func popOver(){
+        viewController?.navigationController?.popViewController(animated: true)
+    }
+   
 }
+

@@ -15,16 +15,13 @@ import UIKit
 protocol SignUpPresentationLogic {
     func alert(title: String , message: String)
     func alertAction(title: String , message: String , action: UIAlertAction)
-    func presentSomething(response: SignUp.SignUp.Response)
 }
 
 class SignUpPresenter: SignUpPresentationLogic {
     weak var viewController: SignUpDisplayLogic?
     
-    func presentSomething(response: SignUp.SignUp.Response) {
-        let viewModel = SignUp.SignUp.ViewModel()
-        viewController?.displaySignUpView(viewModel: viewModel)
-    }
+    
+    
     
     func alertAction(title: String , message: String , action: UIAlertAction) {
         Alert.alertAction(title: title, message: message, action: action)

@@ -15,7 +15,7 @@ import UIKit
 protocol SignUpBusinessLogic {
     func alertAction(title: String, message: String, action: UIAlertAction)
     func alert(title: String, message: String)
-    func createUser(firstName: String, lastName: String, email: String, password: String)
+    func registerUser(firstName: String , lastName: String ,email: String , password: String ,completion:@escaping(_ sucess : Bool)->Void)
 }
 
 protocol SignUpDataStore {
@@ -29,8 +29,18 @@ class SignUpInteractor: SignUpBusinessLogic, SignUpDataStore {
         self.worker = worker
     }
     
-    func createUser(firstName: String, lastName: String, email: String, password: String){
-        worker.createUser(firstName: firstName, lastName: lastName, email: email, password: password)
+   
+    func registerUser(firstName: String , lastName: String ,email: String , password: String ,completion:@escaping(_ sucess : Bool)->Void){
+        
+        worker.createUser(firstName: firstName, lastName: lastName, email: email, password: password) { success in
+            
+            if (success) {
+                completion(true)
+                
+            } else {
+                completion(false)
+            }
+        }
     }
     
     func alertAction(title: String, message: String, action: UIAlertAction) {

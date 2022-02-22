@@ -14,6 +14,7 @@ import UIKit
 
 protocol LoginRoutingLogic {
     func routeToHome()
+    func routeToSignUp()
 }
 
 protocol LoginDataPassing {
@@ -26,5 +27,13 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing {
     
     func routeToHome() {
         viewController?.performSegue(withIdentifier: "toTabbar", sender: nil)
+    }
+    func routeToSignUp(){
+    
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let destVC: SignUpViewController = storyBoard.instantiateViewController(identifier: "signUp")
+            destVC.modalPresentationStyle = .fullScreen
+            viewController?.navigationController?.pushViewController(destVC, animated: true)
+        
     }
 }

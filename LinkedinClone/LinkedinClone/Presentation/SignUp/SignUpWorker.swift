@@ -14,34 +14,35 @@ import UIKit
 import Firebase
 
 protocol SignUpWorkerProtocol: AnyObject{
-    func createUser(firstName: String , lastName: String ,email: String , password: String)
+    func createUser(firstName: String , lastName: String ,email: String , password: String , completionBlock: @escaping (_ success: Bool) -> Void)
 }
 
 final class SignUpWorker:  SignUpWorkerProtocol{
-    
-    func createUser(firstName: String , lastName: String ,email: String , password: String) {
-        
-        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-            if let error = error {
-                print(error.localizedDescription)
-            }
-            else{
+    func createUser(firstName: String , lastName: String ,email: String , password: String , completionBlock: @escaping (_ success: Bool) -> Void) {
+        Auth.auth().createUser(withEmail: email, password: password) {(authResult, error) in
+            if (authResult?.user) != nil {
+                // save user in fireBase Database
                 
-                var ref: DocumentReference? = nil
-                let db = Firestore.firestore()
-                ref = db.collection("users").addDocument(data: [
-                    "firstName": firstName as String ,
-                    "lastName": lastName as String,
-                    "email": email as String
-                ]) { err in
-                    if let err = err {
-                        Alert.alert(title: "Document didn't add", message: error!.localizedDescription)
-                        print("Error adding document: \(err)")
-                    } else {
-                        
-                        print("Document added with ID: \(ref!.documentID)")
+                    var ref: DocumentReference? = nil
+                    let db = Firestore.firestore()
+                    ref = db.collection("users").addDocument(data: [
+                        "firstName": "firstName" as String ,
+                        "lastName": "lastName" as String,
+                        "email": "email" as String
+                    ]) { error in
+                        if let error = error {
+                            
+                            print("Error adding document: \(error)")
+                        } else {
+                            
+                            print("Document added with ID: \(ref!.documentID)")
+                        }
                     }
-                }
+                
+                completionBlock(true)
+                
+            } else {
+                completionBlock(false)
             }
         }
     }

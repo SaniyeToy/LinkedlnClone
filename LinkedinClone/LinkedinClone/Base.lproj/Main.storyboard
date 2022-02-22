@@ -17,14 +17,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5L-2R-6K2">
-                                <rect key="frame" x="50" y="524" width="182" height="18"/>
+                                <rect key="frame" x="50" y="480" width="182" height="18"/>
                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillEqually" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="Bkb-Jy-3OJ">
-                                <rect key="frame" x="32" y="209" width="350" height="241"/>
+                                <rect key="frame" x="32" y="165" width="350" height="241"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fHQ-nb-MUk">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="34"/>
@@ -40,24 +40,24 @@
                                         <rect key="frame" x="0.0" y="138" width="350" height="34"/>
                                         <color key="backgroundColor" systemColor="linkColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Continue with FaceBook">
+                                        <buttonConfiguration key="configuration" style="plain" title="Log in">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="contiuneFaceBookTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sPp-Lg-uXv"/>
+                                            <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RkC-1B-IJE"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBa-5v-RYG">
+                                    <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBa-5v-RYG">
                                         <rect key="frame" x="0.0" y="207" width="350" height="34"/>
                                         <color key="backgroundColor" systemColor="linkColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Log in">
+                                        <buttonConfiguration key="configuration" style="plain" title="Contiune With FaceBook">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hxC-AG-OrC"/>
+                                            <action selector="contiuneFaceBookTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Akw-Cy-asj"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -66,7 +66,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBy-UI-K3G">
-                                <rect key="frame" x="262" y="518" width="120" height="30"/>
+                                <rect key="frame" x="262" y="474" width="120" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="Vu5-4x-g6T"/>
                                     <constraint firstAttribute="height" constant="30" id="ep9-Vw-vcV"/>
@@ -77,7 +77,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="signUpButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7qP-5Q-Zrv"/>
-                                    <segue destination="uoK-iF-eL4" kind="presentation" modalPresentationStyle="fullScreen" id="KCE-xl-wvB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -109,13 +108,13 @@
         <!--Sign Up View Controller-->
         <scene sceneID="QNc-yD-0wm">
             <objects>
-                <viewController id="2VH-he-GMn" customClass="SignUpViewController" customModule="LinkedinClone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signUp" id="2VH-he-GMn" customClass="SignUpViewController" customModule="LinkedinClone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vjo-0y-85z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="CFt-9j-fAk">
-                                <rect key="frame" x="57" y="282.5" width="300" height="385"/>
+                                <rect key="frame" x="57" y="260.5" width="300" height="385"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WiE-AU-17w">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="34"/>
@@ -151,7 +150,7 @@
                                             <action selector="joinNowTapped:" destination="2VH-he-GMn" eventType="touchUpInside" id="xRj-tQ-KUb"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QVJ-Ej-qVQ">
+                                    <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QVJ-Ej-qVQ">
                                         <rect key="frame" x="0.0" y="297" width="300" height="31"/>
                                         <color key="backgroundColor" red="0.12744614479999999" green="0.53360646960000002" blue="0.92651718849999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
@@ -180,7 +179,6 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="Sign in"/>
                                                 <connections>
                                                     <action selector="signInButtonTapped:" destination="2VH-he-GMn" eventType="touchUpInside" id="NBI-Pw-63b"/>
-                                                    <segue destination="ci8-hQ-pOU" kind="presentation" modalPresentationStyle="fullScreen" id="8Av-IM-wUb"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -212,12 +210,13 @@
                         <outlet property="lastNameTextField" destination="QJD-Vk-OdD" id="XlM-Kc-pK5"/>
                         <outlet property="passwordTextField" destination="GLe-Nk-9E4" id="g4N-XF-FTW"/>
                         <outlet property="signInButton" destination="LK1-pk-VC2" id="H9j-97-wUi"/>
+                        <segue destination="7Cq-14-cBG" kind="presentation" identifier="signUpToTabbar" modalPresentationStyle="fullScreen" id="PhT-ED-gTC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KPG-xO-99E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="s9x-ym-UXH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1035" y="806"/>
+            <point key="canvasLocation" x="252" y="780"/>
         </scene>
         <!--Network-->
         <scene sceneID="r1E-P2-Cfj">
@@ -414,10 +413,10 @@
         <!--Navigation Controller-->
         <scene sceneID="7rx-Rk-Ufn">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uoK-iF-eL4" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kp0-X1-7iu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="uoK-iF-eL4" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MII-df-rHn">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -425,17 +424,16 @@
                         <segue destination="2VH-he-GMn" kind="relationship" relationship="rootViewController" id="H8X-1F-bYd"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kp0-X1-7iu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="277" y="806"/>
+            <point key="canvasLocation" x="-633" y="780"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Qa-6F-8Jg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ci8-hQ-pOU" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="40w-7t-8WO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ci8-hQ-pOU" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bXQ-10-zrq">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -443,11 +441,13 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="2Fa-ZU-TN0"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="40w-7t-8WO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-633.33333333333337" y="72.991071428571431"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="PhT-ED-gTC"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="bag.fill" catalog="system" width="128" height="128"/>
         <image name="bell.fill" catalog="system" width="128" height="124"/>

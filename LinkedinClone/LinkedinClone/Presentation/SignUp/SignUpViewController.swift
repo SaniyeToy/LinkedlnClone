@@ -15,6 +15,7 @@ import Firebase
 
 protocol SignUpDisplayLogic: AnyObject{
     func displaySignUpView(viewModel: SignUp.SignUp.ViewModel)
+    func getResponse(_ success: Bool)
 }
 
 class SignUpViewController: UIViewController {
@@ -76,7 +77,7 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signInButtonTapped(_ sender: Any) {
-        
+        router?.popOver()
     }
     
     func createUser(){
@@ -104,12 +105,28 @@ class SignUpViewController: UIViewController {
                   return
               }
         
-        interactor?.createUser(firstName: firstName , lastName: lastName , email: email , password: password)
-        router?.routeToHome()
+        register(firstName: firstName , lastName: lastName , email: email , password: password)
+        
+        }
+    func register(firstName: String , lastName: String , email: String , password: String){
+
+        interactor?.registerUser(firstName: firstName , lastName: lastName , email: email , password: password) {[weak self] (success) in
+            self?.getResponse(success)
+        }
     }
+ 
 }
 
 extension SignUpViewController: SignUpDisplayLogic {
     func displaySignUpView(viewModel: SignUp.SignUp.ViewModel) {
+    }
+    func getResponse(_ success: Bool) {
+        if success{
+            router?.routeToHome()
+        }
+        else{
+            Alert.alert(title: "Error!", message: "Invalid email or password")
+            return
+        }
     }
 }

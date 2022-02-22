@@ -59,14 +59,16 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func contiuneFaceBookTapped(_ sender: Any) {
-    }
-    
     @IBAction func loginButtonTapped(_ sender: Any) {
         login()
     }
     
+    @IBAction func contiuneFaceBookTapped(_ sender: Any) {
+       
+    }
+    
     @IBAction func signUpButtonTapped(_ sender: Any) {
+        router?.routeToSignUp()
     }
     
     func login(){
@@ -103,6 +105,7 @@ extension LoginViewController: LoginDisplayLogic {
             router?.routeToHome()
         }
         else{
+            
             interactor?.alert(title: "Error!", message: "Invalid email or password")
             return
         }

@@ -24,3 +24,30 @@ extension UIView {
 class MyTapGestureRecognizer: UITapGestureRecognizer {
     var action : (()->Void)? = nil
 }
+
+
+public enum QueueType {
+    case Main
+    case Background
+    case LowPriority
+    case HighPriority
+
+    var queue: DispatchQueue {
+        switch self {
+        case .Main:
+            return DispatchQueue.main
+        case .Background:
+            return DispatchQueue(label: "com.app.queue",
+                                 qos: .background,
+                                 target: nil)
+        case .LowPriority:
+            return DispatchQueue.global(qos: .userInitiated)
+        case .HighPriority:
+            return DispatchQueue.global(qos: .userInitiated)
+        }
+    }
+}
+
+func performOn(_ queueType: QueueType, closure: @escaping () -> Void) {
+    queueType.queue.async(execute: closure)
+}
