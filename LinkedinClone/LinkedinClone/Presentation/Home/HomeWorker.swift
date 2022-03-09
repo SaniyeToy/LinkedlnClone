@@ -10,9 +10,22 @@
 //  see http://clean-swift.com
 //
 
+import Firebase
+import UIKit
+
 protocol HomeWorkerProtocol: AnyObject{
 }
 
 final class HomeWorker : HomeWorkerProtocol {
+    let db = Firestore.firestore()
+
+    func getData(completion: @escaping ((Result<[Home.Fetch.ViewModel.Post], Error>) -> Void)){
+        self.db.collection("posts").getDocuments() {  ( _, result: QuerySnapshot, error
+            completion(result)
+    }
+}
+    
+   
+
     
 }

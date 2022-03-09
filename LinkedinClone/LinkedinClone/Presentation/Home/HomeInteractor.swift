@@ -13,6 +13,8 @@
 import UIKit
 
 protocol HomeBusinessLogic: AnyObject {
+    func alertAction(title: String, message: String, action: UIAlertAction)
+    func alert(title: String, message: String)
    
 }
 
@@ -28,4 +30,28 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
         self.worker = worker
     }
     
+    func fetchPlanList() {
+        worker.getPlanList() { [weak self] result in
+            switch result {
+            case .success(let response):
+                self?.planList = response
+                guard let planList = self?.planList else { return }
+                self?.presenter?.presentPlan(response: PlanList.Fetch.Response(planList: planList))
+            case .failure(let error):
+                print("error")
+            }
+        }
+    }
+    
+    func fetchPost(image: UIImage, postTitle: String, collection: String){
+        
+    }
+    
+    func alertAction(title: String, message: String, action: UIAlertAction) {
+        presenter?.alertAction(title: title, message: message, action: action)
+    }
+    
+    func alert(title: String, message: String) {
+        presenter?.alert(title: title, message: message)
+    }
 }

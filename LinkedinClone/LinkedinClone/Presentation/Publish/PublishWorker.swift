@@ -41,7 +41,7 @@ final class PublishWorker : PublishWorkerProtocol {
                             
                             let firestoreDatabase = Firestore.firestore()
                             var firestoreReference : DocumentReference? = nil
-                            let firestorePost = ["imageUrl" : imageUrl!, "postedBy" : Auth.auth().currentUser!.email!, "postComment" : postTitle,"date" : FieldValue.serverTimestamp() ] as [String : Any]
+                            let firestorePost = ["imageUrl" : imageUrl!, "postedBy" : Auth.auth().currentUser!.email!, "postComment" : postTitle, "date" : FieldValue.serverTimestamp() ] as [String : Any]
                             firestoreReference = firestoreDatabase.collection(collection).addDocument(data: firestorePost, completion: { (error) in
                                 
                             })
