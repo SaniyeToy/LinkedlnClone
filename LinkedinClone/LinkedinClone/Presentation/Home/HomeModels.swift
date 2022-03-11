@@ -16,7 +16,7 @@ enum Home
 {
     // MARK: Use cases
 
-    enum Home
+    enum Fetch
     {
         struct Request
         {
@@ -28,9 +28,17 @@ enum Home
 
         }
 
-        struct ViewModel
-        {
-
+        struct ViewModel {
+            var postList: [Home.Fetch.ViewModel.Post?]
+            
+            struct Post {
+                
+                var postedBy: String?
+                var date: Date?
+                var postComment: String?
+                var imageUrl: String?
+               
+            }
         }
     }
 }

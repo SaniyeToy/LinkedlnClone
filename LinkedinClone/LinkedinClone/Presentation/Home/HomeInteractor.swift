@@ -13,6 +13,9 @@
 import UIKit
 
 protocol HomeBusinessLogic: AnyObject {
+    func alertAction(title: String, message: String, action: UIAlertAction)
+    func alert(title: String, message: String)
+    func fetchPost()
    
 }
 
@@ -28,4 +31,25 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
         self.worker = worker
     }
     
+    func fetchPost() {
+        worker.getData(){ [weak self] result in
+            switch result {
+            case .success(let response):
+                if result != nil {
+                    print("response: \(response)")
+                } else {
+                    print("Document does not exist")
+                }
+            case .failure(let error):
+                print("Error decoding city: \(error)")
+            }
+        }
+    }
+    func alertAction(title: String, message: String, action: UIAlertAction) {
+        presenter?.alertAction(title: title, message: message, action: action)
+    }
+    
+    func alert(title: String, message: String) {
+        presenter?.alert(title: title, message: message)
+    }
 }

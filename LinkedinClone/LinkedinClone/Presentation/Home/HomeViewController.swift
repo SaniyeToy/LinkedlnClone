@@ -20,21 +20,23 @@ protocol HomeDisplayLogic: AnyObject{
 class HomeViewController: UIViewController{
     var interactor: HomeBusinessLogic?
     var router: (HomeRoutingLogic & HomeDataPassing)?
-
+    
+    
+    @IBOutlet weak var homeSearchBar: UISearchBar!
+    @IBOutlet weak var homeTableView: UITableView!
     // MARK: Object lifecycle
-
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
-
-    // MARK: - Setup Clean Code Design Pattern 
-
+    
+    // MARK: - Setup Clean Code Design Pattern
+    
     private func setup() {
         let viewController = self
         let interactor = HomeInteractor(worker: HomeWorker())
@@ -47,9 +49,9 @@ class HomeViewController: UIViewController{
         router.viewController = viewController
         router.dataStore = interactor
     }
-
+    
     // MARK: - View lifecycle
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.setHidesBackButton(true, animated: true)
@@ -57,20 +59,32 @@ class HomeViewController: UIViewController{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        interactor?.fetchPost()
+        homeTableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "Home")
+    }
+
+    @IBAction func goToProfile(_ sender: Any) {
     }
     
-    @IBAction func logoutTapped(_ sender: Any) {
-        do{
-            try Auth.auth().signOut()
-           
-            
-        }catch{
-            
-        }
-    }
 }
 
 extension HomeViewController : HomeDisplayLogic {
     
+}
+
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Home", for: indexPath) as! HomeTableViewCell
+    
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
 }

@@ -13,9 +13,19 @@
 import UIKit
 
 protocol HomePresentationLogic: AnyObject {
-   
+    func alertAction(title: String , message: String , action: UIAlertAction)
+    func alert(title: String , message: String)
 }
 
 final class HomePresenter: HomePresentationLogic {
     weak var viewController: HomeDisplayLogic?
+    
+
+    func alertAction(title: String , message: String , action: UIAlertAction) {
+        Alert.alertAction(title: title, message: message, action: action)
+    }
+    
+    func alert(title: String , message: String){
+        Alert.alert(title: title, message: message)
+    }
 }

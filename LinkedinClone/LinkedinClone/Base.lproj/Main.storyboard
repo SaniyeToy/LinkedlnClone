@@ -355,6 +355,9 @@
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="brain.head.profile" catalog="system"/>
                                         </button>
+                                        <connections>
+                                            <action selector="goToProfile:" destination="SqO-GL-otw" id="3UZ-rg-Wb1"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" id="5fK-Ko-hdK">
                                         <searchBar key="customView" contentMode="redraw" id="CFc-ci-SQN">
@@ -368,6 +371,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DJa-us-jtf">
                                 <rect key="frame" x="0.0" y="106" width="414" height="707"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="SqO-GL-otw" id="ETV-4O-MLE"/>
+                                    <outlet property="delegate" destination="SqO-GL-otw" id="MxE-pj-fCw"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7Mi-aR-0K0"/>
@@ -383,6 +390,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="lPs-pX-NXC"/>
+                    <connections>
+                        <outlet property="homeSearchBar" destination="CFc-ci-SQN" id="Kc4-b4-hdV"/>
+                        <outlet property="homeTableView" destination="DJa-us-jtf" id="zls-xE-QUf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i3j-wa-Oyv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -413,7 +424,6 @@
         <!--Navigation Controller-->
         <scene sceneID="7rx-Rk-Ufn">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kp0-X1-7iu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="uoK-iF-eL4" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MII-df-rHn">
@@ -424,13 +434,13 @@
                         <segue destination="2VH-he-GMn" kind="relationship" relationship="rootViewController" id="H8X-1F-bYd"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kp0-X1-7iu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-633" y="780"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Qa-6F-8Jg">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="40w-7t-8WO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ci8-hQ-pOU" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bXQ-10-zrq">
@@ -441,6 +451,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="2Fa-ZU-TN0"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="40w-7t-8WO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-633.33333333333337" y="72.991071428571431"/>
         </scene>

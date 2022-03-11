@@ -261,8 +261,8 @@
 			children = (
 				22F93A8827BEB40E006EA81A /* PublishViewController.swift */,
 				22F93A8927BEB40E006EA81A /* PublishInteractor.swift */,
-				22F93A8427BEB40E006EA81A /* PublishPresenter.swift */,
 				22F93A8527BEB40E006EA81A /* PublishWorker.swift */,
+				22F93A8427BEB40E006EA81A /* PublishPresenter.swift */,
 				22F93A8627BEB40E006EA81A /* PublishRouter.swift */,
 				22F93A8727BEB40E006EA81A /* PublishModels.swift */,
 			);

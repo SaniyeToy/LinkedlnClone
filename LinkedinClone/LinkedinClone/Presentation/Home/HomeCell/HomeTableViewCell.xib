@@ -4,20 +4,81 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="233" id="KGk-i7-Jjw" customClass="HomeTableViewCell" customModule="LinkedinClone" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="396" height="233"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Home" rowHeight="200" id="KGk-i7-Jjw" customClass="HomeTableViewCell" customModule="LinkedinClone" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="514" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="396" height="233"/>
+                <rect key="frame" x="0.0" y="0.0" width="514" height="200"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Or3-oY-Mdk">
+                        <rect key="frame" x="0.0" y="0.0" width="514" height="200"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mhy-aX-3rI">
+                                <rect key="frame" x="10" y="10" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="ZR8-ZS-gKN"/>
+                                    <constraint firstAttribute="height" constant="40" id="kzT-uf-muE"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="brain.head.profile" catalog="system"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saniye Toy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5K-xi-1hB">
+                                <rect key="frame" x="80" y="19" width="424" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="dfjfdjfjfjfjsalşsalşkvnmcvkfdkfdjgkldfjgldfkljjdfkgjdkgjdklgjdfkgjkfdgjfkdgjkfldgknmcv nvxcmö  lfksldsaşldşaldşasldsşa" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="drJ-id-IbB">
+                                <rect key="frame" x="10" y="60" width="494" height="80"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="339-zQ-MYh"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Mhy-aX-3rI" firstAttribute="leading" secondItem="Or3-oY-Mdk" secondAttribute="leading" constant="10" id="8Qs-aQ-VKN"/>
+                            <constraint firstItem="f5K-xi-1hB" firstAttribute="leading" secondItem="Mhy-aX-3rI" secondAttribute="trailing" constant="30" id="EHX-pn-hZI"/>
+                            <constraint firstItem="drJ-id-IbB" firstAttribute="top" secondItem="Mhy-aX-3rI" secondAttribute="bottom" constant="10" id="Lo6-Vf-MSP"/>
+                            <constraint firstItem="drJ-id-IbB" firstAttribute="leading" secondItem="Or3-oY-Mdk" secondAttribute="leading" constant="10" id="PnL-kH-gAl"/>
+                            <constraint firstItem="f5K-xi-1hB" firstAttribute="top" secondItem="Or3-oY-Mdk" secondAttribute="top" constant="19" id="PwC-k5-OKg"/>
+                            <constraint firstAttribute="trailing" secondItem="drJ-id-IbB" secondAttribute="trailing" constant="10" id="VNj-ie-S5d"/>
+                            <constraint firstAttribute="trailing" secondItem="f5K-xi-1hB" secondAttribute="trailing" constant="10" id="bYW-bw-s0K"/>
+                            <constraint firstItem="drJ-id-IbB" firstAttribute="top" secondItem="Mhy-aX-3rI" secondAttribute="bottom" constant="10" id="m7S-k4-yXu"/>
+                            <constraint firstItem="Mhy-aX-3rI" firstAttribute="top" secondItem="Or3-oY-Mdk" secondAttribute="top" constant="10" id="mfF-vg-qYB"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="drJ-id-IbB" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="JW4-aR-wV9"/>
+                    <constraint firstAttribute="bottom" secondItem="Or3-oY-Mdk" secondAttribute="bottom" id="RBX-nP-zhx"/>
+                    <constraint firstItem="Or3-oY-Mdk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="SMb-Ls-VDb"/>
+                    <constraint firstAttribute="trailing" secondItem="Or3-oY-Mdk" secondAttribute="trailing" id="WMC-fb-N6b"/>
+                    <constraint firstItem="Or3-oY-Mdk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="mHJ-z8-A4d"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <point key="canvasLocation" x="186.95652173913044" y="155.69196428571428"/>
+            <point key="canvasLocation" x="31.884057971014496" y="54.241071428571423"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="brain.head.profile" catalog="system" width="114" height="128"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
