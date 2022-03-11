@@ -14,18 +14,19 @@ import Firebase
 import UIKit
 
 protocol HomeWorkerProtocol: AnyObject{
+    func getData(completion: @escaping ((Result<[Home.Fetch.ViewModel.Post], Error>) -> Void))
 }
 
 final class HomeWorker : HomeWorkerProtocol {
     let db = Firestore.firestore()
-
+    
     func getData(completion: @escaping ((Result<[Home.Fetch.ViewModel.Post], Error>) -> Void)){
-        self.db.collection("posts").getDocuments() {  ( _, result: QuerySnapshot, error
-            completion(result)
+        
+        db.collection("post").order(by: "date", descending: true).addSnapshotListener { (snapshot, error) in
+            guard let result = snapshot else {
+                print("Error fetching document: \(error!)")
+                return
+            }
+        }
     }
-}
-    
-   
-
-    
 }

@@ -15,6 +15,7 @@ import UIKit
 protocol HomeBusinessLogic: AnyObject {
     func alertAction(title: String, message: String, action: UIAlertAction)
     func alert(title: String, message: String)
+    func fetchPost()
    
 }
 
@@ -30,23 +31,20 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
         self.worker = worker
     }
     
-    func fetchPlanList() {
-        worker.getPlanList() { [weak self] result in
+    func fetchPost() {
+        worker.getData(){ [weak self] result in
             switch result {
             case .success(let response):
-                self?.planList = response
-                guard let planList = self?.planList else { return }
-                self?.presenter?.presentPlan(response: PlanList.Fetch.Response(planList: planList))
+                if result != nil {
+                    print("response: \(response)")
+                } else {
+                    print("Document does not exist")
+                }
             case .failure(let error):
-                print("error")
+                print("Error decoding city: \(error)")
             }
         }
     }
-    
-    func fetchPost(image: UIImage, postTitle: String, collection: String){
-        
-    }
-    
     func alertAction(title: String, message: String, action: UIAlertAction) {
         presenter?.alertAction(title: title, message: message, action: action)
     }

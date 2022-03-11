@@ -59,6 +59,7 @@ class HomeViewController: UIViewController{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        interactor?.fetchPost()
         homeTableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "Home")
     }
 
