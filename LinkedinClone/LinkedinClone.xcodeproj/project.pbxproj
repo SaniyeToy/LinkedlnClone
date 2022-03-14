@@ -10,6 +10,12 @@
 		220D111027C0D5420071BEDE /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220D110F27C0D5420071BEDE /* ViewExtensions.swift */; };
 		220D111327C0FA220071BEDE /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220D111127C0FA220071BEDE /* HomeTableViewCell.swift */; };
 		220D111427C0FA220071BEDE /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 220D111227C0FA220071BEDE /* HomeTableViewCell.xib */; };
+		2220C58C27DF5AC90040918E /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220C58627DF5AC90040918E /* ProfilePresenter.swift */; };
+		2220C58D27DF5AC90040918E /* ProfileWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220C58727DF5AC90040918E /* ProfileWorker.swift */; };
+		2220C58E27DF5AC90040918E /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220C58827DF5AC90040918E /* ProfileRouter.swift */; };
+		2220C58F27DF5AC90040918E /* ProfileModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220C58927DF5AC90040918E /* ProfileModels.swift */; };
+		2220C59027DF5AC90040918E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220C58A27DF5AC90040918E /* ProfileViewController.swift */; };
+		2220C59127DF5AC90040918E /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220C58B27DF5AC90040918E /* ProfileInteractor.swift */; };
 		2283B01327BF7F8A001C8F19 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283B00D27BF7F8A001C8F19 /* SignUpPresenter.swift */; };
 		2283B01427BF7F8A001C8F19 /* SignUpWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283B00E27BF7F8A001C8F19 /* SignUpWorker.swift */; };
 		2283B01527BF7F8A001C8F19 /* SignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2283B00F27BF7F8A001C8F19 /* SignUpRouter.swift */; };
@@ -68,6 +74,12 @@
 		220D110F27C0D5420071BEDE /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		220D111127C0FA220071BEDE /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		220D111227C0FA220071BEDE /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
+		2220C58627DF5AC90040918E /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		2220C58727DF5AC90040918E /* ProfileWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWorker.swift; sourceTree = "<group>"; };
+		2220C58827DF5AC90040918E /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		2220C58927DF5AC90040918E /* ProfileModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModels.swift; sourceTree = "<group>"; };
+		2220C58A27DF5AC90040918E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		2220C58B27DF5AC90040918E /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
 		2283B00D27BF7F8A001C8F19 /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
 		2283B00E27BF7F8A001C8F19 /* SignUpWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWorker.swift; sourceTree = "<group>"; };
 		2283B00F27BF7F8A001C8F19 /* SignUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRouter.swift; sourceTree = "<group>"; };
@@ -145,6 +157,19 @@
 			path = HomeCell;
 			sourceTree = "<group>";
 		};
+		2220C58527DF5A9C0040918E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				2220C58627DF5AC90040918E /* ProfilePresenter.swift */,
+				2220C58727DF5AC90040918E /* ProfileWorker.swift */,
+				2220C58827DF5AC90040918E /* ProfileRouter.swift */,
+				2220C58927DF5AC90040918E /* ProfileModels.swift */,
+				2220C58A27DF5AC90040918E /* ProfileViewController.swift */,
+				2220C58B27DF5AC90040918E /* ProfileInteractor.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		2283B01927BF7F91001C8F19 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +230,7 @@
 		22F93A5927BEA690006EA81A /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				2220C58527DF5A9C0040918E /* Profile */,
 				22F93A5A27BEA69D006EA81A /* Login */,
 				2283B01927BF7F91001C8F19 /* SignUp */,
 				22F93A5D27BEA6D0006EA81A /* Publish */,
@@ -440,23 +466,28 @@
 				22F93A8327BEB3F9006EA81A /* NetworkInteractor.swift in Sources */,
 				22F93A7E27BEB3F9006EA81A /* NetworkPresenter.swift in Sources */,
 				2283B01527BF7F8A001C8F19 /* SignUpRouter.swift in Sources */,
+				2220C58D27DF5AC90040918E /* ProfileWorker.swift in Sources */,
 				22F93A7427BEB3DF006EA81A /* LoginRouter.swift in Sources */,
 				22F93AA327BEB443006EA81A /* JobPostingWorker.swift in Sources */,
 				22F93A6827BEAFFA006EA81A /* HomeRouter.swift in Sources */,
 				22F93A4627BEA13A006EA81A /* AppDelegate.swift in Sources */,
 				22F93AA427BEB443006EA81A /* JobPostingRouter.swift in Sources */,
 				220D111027C0D5420071BEDE /* ViewExtensions.swift in Sources */,
+				2220C58C27DF5AC90040918E /* ProfilePresenter.swift in Sources */,
 				22F93AA527BEB443006EA81A /* JobPostingModels.swift in Sources */,
 				22F93A6A27BEAFFA006EA81A /* HomeViewController.swift in Sources */,
 				22F93A8F27BEB40E006EA81A /* PublishInteractor.swift in Sources */,
 				22F93A9B27BEB42A006EA81A /* NotificationsInteractor.swift in Sources */,
+				2220C58F27DF5AC90040918E /* ProfileModels.swift in Sources */,
 				2283B01327BF7F8A001C8F19 /* SignUpPresenter.swift in Sources */,
+				2220C58E27DF5AC90040918E /* ProfileRouter.swift in Sources */,
 				22F93AA227BEB443006EA81A /* JobPostingPresenter.swift in Sources */,
 				22F93A8E27BEB40E006EA81A /* PublishViewController.swift in Sources */,
 				22F93A7227BEB3DF006EA81A /* LoginPresenter.swift in Sources */,
 				22F93A7727BEB3DF006EA81A /* LoginInteractor.swift in Sources */,
 				22F93A4827BEA13A006EA81A /* SceneDelegate.swift in Sources */,
 				22F93A9727BEB42A006EA81A /* NotificationsWorker.swift in Sources */,
+				2220C59027DF5AC90040918E /* ProfileViewController.swift in Sources */,
 				22F93A8127BEB3F9006EA81A /* NetworkModels.swift in Sources */,
 				22F93A6727BEAFFA006EA81A /* HomeWorker.swift in Sources */,
 				22F93A6B27BEAFFA006EA81A /* HomeInteractor.swift in Sources */,
@@ -476,6 +507,7 @@
 				22B60DE327C39E53008264F6 /* FireBaseManager.swift in Sources */,
 				22F93A8027BEB3F9006EA81A /* NetworkRouter.swift in Sources */,
 				22F93A9A27BEB42A006EA81A /* NotificationsViewController.swift in Sources */,
+				2220C59127DF5AC90040918E /* ProfileInteractor.swift in Sources */,
 				2283B01627BF7F8A001C8F19 /* SignUpModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
