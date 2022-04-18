@@ -1,6 +1,8 @@
 # LinkedinClone
 - I'm working on this project
 - Let me give you a tip LinkedinClone will be great :)
+- Sharing the screens I've completed
+
  <table>
   <tr>
     <td>Sign In View </td>
