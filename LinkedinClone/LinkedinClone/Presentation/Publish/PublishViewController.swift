@@ -60,6 +60,9 @@ class PublishViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        publishImageView.addTapGesture { [self] in
+            chooseImage()
+        }
     }
     
     @IBAction func publishButton(_ sender: Any) {
@@ -78,7 +81,7 @@ class PublishViewController: UIViewController{
     func publishPost(){
         guard let postTitle = addCommentTextField.text,
               !postTitle.isEmpty else {
-                  interactor?.alert(title: "Please enter a first name", message: "Invalid First Name")
+                  interactor?.alert(title: "Please enter comment", message: "Invalid post")
                   return
               }
         
@@ -88,9 +91,7 @@ class PublishViewController: UIViewController{
 }
 extension PublishViewController: PublishDisplayLogic{
     func displayPublishView(viewModel: Publish.Publish.ViewModel) {
-        publishImageView.addTapGesture { [self] in
-            chooseImage()
-        }
+       
     }
 }
 

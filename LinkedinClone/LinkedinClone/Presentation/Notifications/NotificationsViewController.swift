@@ -66,13 +66,13 @@ class NotificationsViewController: UIViewController, NotificationsDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        do {
-                   try Auth.auth().signOut()
-                   self.performSegue(withIdentifier: "toViewController", sender: nil)
-                   
-               } catch {
-                   print("error")
-               }
+      //  do {
+      //             try Auth.auth().signOut()
+      //             self.performSegue(withIdentifier: "toViewController", sender: nil)
+      //
+      //         } catch {
+      //             print("error")
+      //         }
     }
     
     //MARK: - receive events from UI

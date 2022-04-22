@@ -27,7 +27,7 @@
                                     <constraint firstAttribute="height" constant="40" id="kzT-uf-muE"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="brain.head.profile" catalog="system"/>
+                                <buttonConfiguration key="configuration" style="plain" image="person" catalog="system"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saniye Toy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5K-xi-1hB">
                                 <rect key="frame" x="80" y="19" width="424" height="21"/>
@@ -35,7 +35,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="dfjfdjfjfjfjsalşsalşkvnmcvkfdkfdjgkldfjgldfkljjdfkgjdkgjdklgjdfkgjkfdgjfkdgjkfldgknmcv nvxcmö  lfksldsaşldşaldşasldsşa" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="drJ-id-IbB">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="aa" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="drJ-id-IbB">
                                 <rect key="frame" x="10" y="60" width="494" height="80"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -73,7 +73,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="brain.head.profile" catalog="system" width="114" height="128"/>
+        <image name="person" catalog="system" width="128" height="117"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
