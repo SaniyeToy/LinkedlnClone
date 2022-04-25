@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import Firebase
 
 protocol HomeBusinessLogic: AnyObject {
     func alertAction(title: String, message: String, action: UIAlertAction)
@@ -20,10 +21,11 @@ protocol HomeBusinessLogic: AnyObject {
 }
 
 protocol HomeDataStore: AnyObject{
-    
+    var postList: [QueryDocumentSnapshot]? { get set }
 }
 
 final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
+    var postList: [QueryDocumentSnapshot]?
     var presenter: HomePresentationLogic?
     var worker: HomeWorkerProtocol
    
@@ -32,16 +34,19 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     }
     
     func fetchPost() {
-        worker.getData(){ [weak self] result in
-            switch result {
-            case .success(let response):
-                if result != nil {
-                    print("response: \(response)")
-                } else {
-                    print("Document does not exist")
-                }
-            case .failure(let error):
-                print("Error decoding city: \(error)")
+        let db = Firestore.firestore()
+        db.collection("post").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                        }
+                
+                self.postList = querySnapshot?.documents
+                guard let postList = self.postList else {return}
+                self.presenter?.presentPostList(response:  Home.Fetch.Response( postList: postList))
+
             }
         }
     }

@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import Firebase
 
 enum Home
 {
@@ -25,7 +26,7 @@ enum Home
 
         struct Response
         {
-
+            var postList: [QueryDocumentSnapshot]
         }
 
         struct ViewModel {

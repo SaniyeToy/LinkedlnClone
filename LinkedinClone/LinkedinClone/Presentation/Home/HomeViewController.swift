@@ -14,7 +14,7 @@ import UIKit
 import Firebase
 
 protocol HomeDisplayLogic: AnyObject{
-    
+    func displayPosts(viewModel: Home.Fetch.ViewModel)
 }
 
 class HomeViewController: UIViewController{
@@ -69,7 +69,9 @@ class HomeViewController: UIViewController{
 }
 
 extension HomeViewController : HomeDisplayLogic {
-    
+    func displayPosts(viewModel: Home.Fetch.ViewModel) {
+        
+    }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
